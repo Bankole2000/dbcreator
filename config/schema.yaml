@@ -1,0 +1,22 @@
+types:
+  User:
+    properties:
+      uuid: { nullable: true, range: "Text" }
+      firstname: { nullable: true, range: "Text" }
+      lastname: { nullable: true, range: "Text" }
+      email: { nullable: true, range: "Text" }
+      password: { nullable: true, range: "Text" }
+      registeredMeetups:
+        { nullable: true, range: "Meetup", cardinality: "(0..*)" }
+
+  Meetup:
+    properties:
+      uuid: { nullable: true, range: "Text" }
+      title: { nullable: true, range: "Text" }
+      description: { nullable: true, range: "Text" }
+      location: { nullable: true, range: "Text" }
+      dateAndTime: { nullable: true, range: "Text" }
+      imageIsUrl: { nullable: true, range: "Text" }
+      imageUrl: { nullable: true, range: "Text" }
+      themeColor: { nullable: true, range: "Text" }
+      postedBy: { nullable: true, range: "User", cardinality: "(*..0)" }
